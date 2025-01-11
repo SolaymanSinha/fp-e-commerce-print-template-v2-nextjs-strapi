@@ -1,1 +1,1 @@
-export const TW_LAYOUT = 'px-layout mt-10';
+export const TW_LAYOUT = 'px-desktop-layout mt-10';

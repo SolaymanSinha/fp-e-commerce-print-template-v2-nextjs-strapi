@@ -7,40 +7,44 @@ import {
 import React from 'react';
 import BankaiButton from '../buttons/BankaiButton';
 import { List, ChevronDown } from 'lucide-react';
+import { fetchCategories } from '@/data/(GET REQUEST)/category';
+import { Categories, Category } from '@/data/strapi-types/Category';
 
-const BottomNav = () => {
+export default async function BottomNav() {
+  const categories: Promise<Categories> = fetchCategories();
+
   return (
-    <div className="px-layout py-[6px] flex items-center overflow-x-scroll">
+    <div className="px-mobile-layout md:px-tablet-layout lg:px-desktop-layout py-[6px] flex items-center overflow-x-scroll">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-            <BankaiButton className="bg-gray-200" href="" variant={'outline'}>
-              <List /> All Categories <ChevronDown />
-            </BankaiButton>
+          <BankaiButton className="bg-gray-200" href="" variant={'outline'}>
+            <List /> All Categories <ChevronDown />
+          </BankaiButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          <DropdownMenuItem>Electronics</DropdownMenuItem>
-          <DropdownMenuItem>Fashion</DropdownMenuItem>
-          <DropdownMenuItem>Business</DropdownMenuItem>
-          <DropdownMenuItem>Marketing</DropdownMenuItem>
-          <DropdownMenuItem>Banners</DropdownMenuItem>
-          <DropdownMenuItem>Posters</DropdownMenuItem>
+          {(await categories).data.map((category: Category) => {
+            return (
+              <DropdownMenuItem key={category.documentId}>
+                {category.title}
+              </DropdownMenuItem>
+            );
+          })}
         </DropdownMenuContent>
       </DropdownMenu>
-      <BankaiButton variant={'ghost'} className='font-medium'>Home</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Business</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Marketing</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Stickers</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Banners</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Posters</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Packaging</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Bookmark</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Catalog Booklet</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Flyers</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>Notebooks</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium'>T-Shirts</BankaiButton>
-      <BankaiButton variant={'ghost'} className='font-medium background-primary'>Business Cards</BankaiButton>
+
+      <BankaiButton variant={'ghost'} className="font-medium">
+        Home
+      </BankaiButton>
+
+      {(await categories).data.slice(0, 14).map((category: Category) => (
+        <BankaiButton
+          key={category.documentId}
+          variant={'ghost'}
+          className="font-medium"
+        >
+          {category.title}
+        </BankaiButton>
+      ))}
     </div>
   );
-};
-
-export default BottomNav;
+}

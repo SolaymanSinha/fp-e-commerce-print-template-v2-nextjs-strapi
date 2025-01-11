@@ -8,7 +8,7 @@ import BankaiButton from '../buttons/BankaiButton';
 
 const ConfigureProduct = () => {
   return (
-    <div className="flex gap-10 mt-10 px-layout">
+    <div className="flex gap-10 mt-10 px-desktop-layout">
       <div className="flex-auto">
         <ProductView />
       </div>

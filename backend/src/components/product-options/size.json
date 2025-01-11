@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_product_options_sizes",
+  "info": {
+    "displayName": "size",
+    "icon": "",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "size": {
+      "type": "text",
+      "default": "S:0, M:10, L:20",
+      "required": true
+    }
+  }
+}

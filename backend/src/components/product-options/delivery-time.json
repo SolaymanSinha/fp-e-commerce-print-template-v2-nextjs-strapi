@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_options_delivery_times",
+  "info": {
+    "displayName": "delivery_time"
+  },
+  "options": {},
+  "attributes": {
+    "delivery_time": {
+      "type": "text",
+      "required": true,
+      "default": "1 Business Day:20, 2 Business Day:10"
+    }
+  }
+}

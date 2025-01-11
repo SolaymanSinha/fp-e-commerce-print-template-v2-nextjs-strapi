@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_options_colors",
+  "info": {
+    "displayName": "color"
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "text",
+      "required": true,
+      "default": "black:0, white:0, red:10"
+    }
+  }
+}

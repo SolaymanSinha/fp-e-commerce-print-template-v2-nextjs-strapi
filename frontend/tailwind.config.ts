@@ -2,6 +2,7 @@
 import type { Config } from 'tailwindcss';
 
 export default {
+  important: true,
   darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -65,16 +66,18 @@ export default {
 
       spacing: {
         // padding
-        'layout': '68px',
-        'nav': '6px',
+        'desktop-layout': '68px',
+        'tablet-layout': '10px',
+        'mobile-layout': '5px',
+        nav: '6px',
 
         // Margin
-        'section': '70px',
-				'heading-content-gap': '35px'
+        section: '70px',
+        'heading-content-gap': '35px',
       },
-			fontSize: {
-				'section-heading': '40px'
-			}
+      fontSize: {
+        'section-heading': '40px',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

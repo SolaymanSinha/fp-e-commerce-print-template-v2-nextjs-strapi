@@ -5,7 +5,7 @@ import ProductView from '../tiny-components/ProductView';
 
 export default function ProductDetails() {
   return (
-    <div className="flex justify-between w-full px-layout pt-10 gap-10">
+    <div className="flex justify-between w-full px-desktop-layout pt-10 gap-10">
       <div className="flex-1 w-full mx-auto">
         <ProductView />
       </div>

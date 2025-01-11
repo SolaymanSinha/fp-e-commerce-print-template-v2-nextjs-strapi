@@ -74,11 +74,18 @@ html {
   }
 
   section {
-    @apply md:px-layout mt-section;
+    @apply md:px-desktop-layout mt-section;
   }
 }
 
 @layer utilities {
+  .tablet-px-layout {
+    @apply px-6;
+  }
+
+  .px-desktop-layout {
+    @apply px-["68px"];
+  }
   .section-header {
     @apply text-section-heading font-extrabold;
   }
